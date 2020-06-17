@@ -366,14 +366,14 @@ def main():
             with open(args.file, 'r') as f:
                 for h in f.readlines():
                     print("\n [+]" + colors.INFO + " Hash: " + colors.GREEN + h.strip("\n") + colors.ENDC)
-                    r = commands.getoutput('./hash-identifier.py %s' % h.strip('\n'))
+                    r = commands.getoutput('python hash-identifier.py %s' % h.strip('\n'))
                     for x in r.split("\n"):
                         if not "Least Possible" in x:
                             print(x + "\n"),
                         else:
                             break
         else:
-            r = commands.getoutput('./hash-identifier.py %s' % args.word)
+            r = commands.getoutput('python hash-identifier.py %s' % args.word)
             print(r)
 
     elif args.file and args.decrypt and not args.encrypt and not args.identify:  # FILE
